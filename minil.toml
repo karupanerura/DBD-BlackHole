@@ -1,0 +1,4 @@
+name = "DBD-BlackHole"
+# badges = ["travis"]
+module_maker="ModuleBuildTiny"
+
