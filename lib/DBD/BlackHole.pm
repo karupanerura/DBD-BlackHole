@@ -49,6 +49,8 @@ use Carp qw/croak/;
 
 use constant DEFAULT_IDENTIFIER => '`';
 
+our $imp_data_size = 0;
+
 sub get_info {
     my ($dbh, $type) = @_;
     # identifier quote
@@ -97,6 +99,8 @@ sub DESTROY { shift->disconnect }
 package DBD::BlackHole::st;
 use strict;
 use warnings;
+
+our $imp_data_size = 0;
 
 sub bind_col { 1 }
 sub bind_param { 1 }
