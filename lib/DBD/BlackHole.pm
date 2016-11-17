@@ -71,9 +71,9 @@ sub ping { shift->FETCH('Active') }
 
 sub disconnect { shift->STORE(Active => 0) }
 
-sub begin_work { '0E0' }
-sub commit { '0E0' }
-sub rollback { '0E0' }
+sub begin_work { 1 }
+sub commit { 1 }
+sub rollback { 1 }
 sub tables {}
 
 sub FETCH {
