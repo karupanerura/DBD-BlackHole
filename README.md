@@ -1,16 +1,19 @@
+[![Build Status](https://travis-ci.org/karupanerura/DBD-BlackHole.svg?branch=master)](https://travis-ci.org/karupanerura/DBD-BlackHole) [![Coverage Status](http://codecov.io/github/karupanerura/DBD-BlackHole/coverage.svg?branch=master)](https://codecov.io/github/karupanerura/DBD-BlackHole?branch=master) [![MetaCPAN Release](https://badge.fury.io/pl/DBD-BlackHole.svg)](https://metacpan.org/release/DBD-BlackHole)
 # NAME
 
 DBD::BlackHole - NULL database driver for DBI
 
 # SYNOPSIS
 
-    use DBI;
+```perl
+use DBI;
 
-    my $dbh = DBI->connect('dbi:BlackHole:', undef, undef); # always successful
+my $dbh = DBI->connect('dbi:BlackHole:', undef, undef); # always successful
 
-    $dbh->do('INSERT INTO my_table (val) VALUES (?)', undef, 'value'); # always successful
+$dbh->do('INSERT INTO my_table (val) VALUES (?)', undef, 'value'); # always successful
 
-    my $rows = $dbh->selectall_arrayref('SELECT * FROM my_table'); # always returns empty arrayref
+my $rows = $dbh->selectall_arrayref('SELECT * FROM my_table'); # always returns empty arrayref
+```
 
 # DESCRIPTION
 
