@@ -15,7 +15,7 @@ for my $prepare_method (qw/prepare prepare_cached/) {
     is $ret, '1';
     ok !$sth->{Active};
 
-    is $sth->rows, '0E0';
+    is $sth->rows, 0;
 
     ok $sth->finish;;
     ok !$sth->{Active};
@@ -25,7 +25,7 @@ for my $prepare_method (qw/prepare prepare_cached/) {
 
     $ret = $sth->execute();
     is $ret, '1';
-    is $sth->rows, '0E0';
+    is $sth->rows, 0;
 
     for my $fetch_method (qw/fetch fetchrow_array fetchrow_arrayref fetchrow_hashref/) {
         my $row = $sth->$fetch_method;

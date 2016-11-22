@@ -21,7 +21,13 @@ $rows = $dbh->selectcol_arrayref('SELECT * FROM my_table', {});
 is_deeply $rows, [], 'selectcol_arrayref';
 
 $rows = $dbh->selectall_arrayref('SELECT * FROM my_table', {});
-is_deeply $rows, [], 'selectall_arrayref';
+is_deeply $rows, [], 'selectall_arrayref (slice:ARRAY)';
+
+$rows = $dbh->selectall_arrayref('SELECT * FROM my_table', { Slice => {} });
+is_deeply $rows, [], 'selectall_arrayref (slice:HASH)';
+
+$rows = $dbh->selectall_arrayref('SELECT * FROM my_table', { Slice => \{ 1 => 'id' } });
+is_deeply $rows, [], 'selectall_arrayref (slice:REF+HASH)';
 
 $rows = $dbh->selectall_hashref('SELECT * FROM my_table', 'id');
 is_deeply $rows, {}, 'selectall_hashref';

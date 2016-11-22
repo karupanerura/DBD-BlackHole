@@ -59,11 +59,14 @@ sub get_info {
 }
 
 sub prepare {
-    my ($dbh, $statement)= @_;
+    my ($dbh, $statement) = @_;
 
     my $sth = DBI::_new_sth($dbh, {
-        Statement => $statement,
+        Statement     => $statement,
+	NAME          => ['dummy'],
+        NUM_OF_FIELDS => -1,
     });
+
     return $sth;
 }
 
@@ -107,12 +110,12 @@ sub bind_param { 1 }
 
 sub execute {
     my $sth = shift;
-    $sth->STORE(NUM_OF_FIELDS => 0);
+    $sth->STORE(NUM_OF_FIELDS => 1);
     $sth->STORE(NUM_OF_PARAMS => 0);
     1;
 }
 
-sub rows { '0E0' }
+sub rows { 0 }
 
 sub fetch {}
 
