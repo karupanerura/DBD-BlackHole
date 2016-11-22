@@ -2,6 +2,10 @@ Revision history for Perl extension DBD-BlackHole
 
 {{$NEXT}}
 
+0.03 2016-11-22T07:07:25Z
+
+    - fixed for selectall_arrayref with HASH slice
+
 0.02 2016-11-17T03:17:38Z
 
     - fixed transaction emulation
